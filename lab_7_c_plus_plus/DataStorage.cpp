@@ -3,7 +3,7 @@
 void DataStorage::operator=(DataStorage* other) {
 	this->capacity = other->capacity;
 	this->transferInterface = other->transferInterface;
-	this->brand = other->brand;
+	this->modelName = other->modelName;
 	this->formFactor = other->formFactor;
 }
 
@@ -11,8 +11,8 @@ DataStorage::DataStorage(DataTransferInterface transferInterface) {
 	this->transferInterface = transferInterface;
 }
 
-DataStorage::DataStorage(int capacity, DataTransferInterface transferInterface, std::string brand, float formFactor) {
-	tryToSetArguments(capacity, transferInterface, brand, formFactor);
+DataStorage::DataStorage(int capacity, DataTransferInterface transferInterface, std::string modelName, float formFactor) {
+	tryToSetArguments(capacity, transferInterface, modelName, formFactor);
 }
 
 int DataStorage::getCapacity() const {
@@ -23,8 +23,8 @@ DataTransferInterface DataStorage::getInterface() const {
 	return transferInterface;
 }
 
-std::string DataStorage::getBrand() const {
-	return brand;
+std::string DataStorage::getModelName() const {
+	return modelName;
 }
 
 float DataStorage::getFormFactor() const {
@@ -34,38 +34,40 @@ float DataStorage::getFormFactor() const {
 void DataStorage::input() {
 	int capacity;
 	DataTransferInterface interface;
-	std::string brand;
+	std::string modelName;
 	float formFactor;
 
 	std::cout << "Введите вместимость (в ГБ): ";
 	std::cin >> capacity;
 	std::cout << "Введите интерфейс подключения (PATA - 0, SATA - 1, SAS - 2, NVMe - 3): ";
 	std::cin >> interface;
-	while (getchar() != '\n');
-	std::cout << "Введите производителя: ";
-	std::getline(std::cin, brand);
+	std::cin.clear();
+	while (std::cin.get() != '\n');
+	std::cout << "Введите название модели: ";
+	std::getline(std::cin, modelName);
 	std::cout << "Введите форм фактор (в дюймах): ";
 	std::cin >> formFactor;
-	while (getchar() != '\n');
+	std::cin.clear();
+	while (std::cin.get() != '\n');
 
-	tryToSetArguments(capacity, interface, brand, formFactor);
+	tryToSetArguments(capacity, interface, modelName, formFactor);
 }
 
 
 std::string DataStorage::toString() const {
-	std::string name = this->getBrand() + ", " + std::to_string(this->getCapacity()) + " ГБ, " + DataTransferInterfaceToString(this->getInterface()) + ", " + std::format("{:.1f}", this->getFormFactor());
+	std::string name = this->getModelName() + ", " + std::to_string(this->getCapacity()) + " ГБ, " + DataTransferInterfaceToString(this->getInterface()) + ", " + std::format("{:.1f}", this->getFormFactor());
 	return name;
 }
 
-bool DataStorage::checkArguments(int capacity, DataTransferInterface transferInterface, std::string brand, float formFactor) const {
+bool DataStorage::checkArguments(int capacity, DataTransferInterface transferInterface, std::string modelName, float formFactor) const {
 	return capacity >= 0 && formFactor >= 0;
 }
 
-void DataStorage::tryToSetArguments(int capacity, DataTransferInterface transferInterface, std::string brand, float formFactor) {
-	if (checkArguments(capacity, transferInterface, brand, formFactor)) {
+void DataStorage::tryToSetArguments(int capacity, DataTransferInterface transferInterface, std::string modelName, float formFactor) {
+	if (checkArguments(capacity, transferInterface, modelName, formFactor)) {
 		this->capacity = capacity;
 		this->transferInterface = transferInterface;
-		this->brand = brand;
+		this->modelName = modelName;
 		this->formFactor = formFactor;
 	}
 	else throw std::invalid_argument("Некорректный формат данных!");

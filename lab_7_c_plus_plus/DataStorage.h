@@ -9,7 +9,7 @@ class DataStorage abstract : public LaptopComponent
 public:
 	DataStorage() = default;
 	DataStorage(DataTransferInterface transferInterface);
-	DataStorage(int capacity, DataTransferInterface transferInterface, std::string brand, float formFactor);
+	DataStorage(int capacity, DataTransferInterface transferInterface, std::string modelName, float formFactor);
 	~DataStorage() = default;
 
 	void operator=(DataStorage* other);
@@ -18,7 +18,7 @@ public:
 
 	virtual int getCapacity() const;
 	virtual DataTransferInterface getInterface() const;
-	virtual std::string getBrand() const;
+	virtual std::string getModelName() const;
 	virtual float getFormFactor() const;
 
 	virtual void input();
@@ -27,7 +27,7 @@ protected:
 	int capacity = 0;
 	DataTransferInterface transferInterface = DataTransferInterface::SATA;
 	float formFactor = 0;
-	std::string brand;
+	std::string modelName;
 
 	bool checkArguments(int capacity, DataTransferInterface transferInterface, std::string brand, float formFactor) const;
 	void tryToSetArguments(int capacity, DataTransferInterface transferInterface, std::string brand, float formFactor);

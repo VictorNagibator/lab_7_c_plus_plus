@@ -1,6 +1,7 @@
 #include "Display.h"
 
 void Display::operator=(Display other) {
+	this->modelName = other.getModelName();
 	this->width = other.getWidth();
 	this->height = other.getHeight();
 	this->refreshRate = other.getRefreshRate();
@@ -12,15 +13,19 @@ std::ostream& operator << (std::ostream& out, const Display& display) {
 }
 
 Display::Display(int width, int height) {
-	tryToSetArguments(width, height, 0);
+	tryToSetArguments("", width, height, 0);
 }
 
-Display::Display(int width, int height, int refreshRate) {
-	tryToSetArguments(width, height, refreshRate);
+Display::Display(std::string modelName, int width, int height, int refreshRate) {
+	tryToSetArguments(modelName, width, height, refreshRate);
 }
 
 std::string Display::getComponentName() const {
 	return "Display";
+}
+
+std::string Display::getModelName() const {
+	return modelName;
 }
 
 int Display::getWidth() const {
@@ -36,29 +41,34 @@ int Display::getRefreshRate() const {
 }
 
 void Display::input() {
+	std::string modelName;
 	int width, height, refreshRate;
 
+	std::cout << "¬ведите название модели: ";
+	std::getline(std::cin, modelName);
 	std::cout << "¬ведите ширину и высоту экрана (в пиксел€х): ";
 	std::cin >> width >> height;
 	std::cout << "¬ведите частоту обновлени€ экрана (в √ц): ";
 	std::cin >> refreshRate;
-	while (getchar() != '\n');
+	std::cin.clear();
+	while (std::cin.get() != '\n');
 
-	tryToSetArguments(width, height, refreshRate);
+	tryToSetArguments(modelName, width, height, refreshRate);
 }
 
 std::string Display::toString() const {
-	std::string name = std::to_string(width) + "x" + std::to_string(height) + ", " + std::to_string(refreshRate) + " √ц";
+	std::string name = modelName + ", " + std::to_string(width) + "x" + std::to_string(height) + ", " + std::to_string(refreshRate) + " √ц";
 	return name;
 }
 
 
-bool Display::checkArguments(int width, int height, int refreshRate) const {
+bool Display::checkArguments(std::string modelName, int width, int height, int refreshRate) const {
 	return width >= 0 && height >= 0 && refreshRate >= 0;
 }
 
-void Display::tryToSetArguments(int width, int height, int refreshRate) {
-	if (checkArguments(width, height, refreshRate)) {
+void Display::tryToSetArguments(std::string modelName, int width, int height, int refreshRate) {
+	if (checkArguments(modelName, width, height, refreshRate)) {
+		this->modelName = modelName;
 		this->width = width;
 		this->height = height;
 		this->refreshRate = refreshRate;

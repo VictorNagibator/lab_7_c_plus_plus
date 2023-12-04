@@ -135,6 +135,7 @@
     <ClCompile Include="HDD.cpp" />
     <ClCompile Include="lab_7_c_plus_plus.cpp" />
     <ClCompile Include="Laptop.cpp" />
+    <ClCompile Include="LaptopComponentsTable.cpp" />
     <ClCompile Include="Motherboard.cpp" />
     <ClCompile Include="RAM.cpp" />
     <ClCompile Include="SSD.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="HDD.h" />
     <ClInclude Include="Laptop.h" />
     <ClInclude Include="LaptopComponent.h" />
+    <ClInclude Include="LaptopComponentsTable.h" />
     <ClInclude Include="Motherboard.h" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="RAM.h" />

@@ -45,6 +45,9 @@
     <ClCompile Include="SSD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LaptopComponentsTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LaptopComponent.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StatusType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LaptopComponentsTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

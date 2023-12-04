@@ -68,7 +68,8 @@ void CPU::input() {
 	std::cin >> frequency;
 	std::cout << "Введите количество ядер: ";
 	std::cin >> numOfCores;
-	while (getchar() != '\n'); //очистка входного потока после cin
+	std::cin.clear();
+	while (std::cin.get() != '\n');
 
 	tryToSetArguments(modelName, socket, frequency, numOfCores);
 }

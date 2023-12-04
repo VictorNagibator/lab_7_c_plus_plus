@@ -104,6 +104,8 @@ void Laptop::input() {
     do
     {
         std::cin >> choice;
+        std::cin.clear();
+        while (std::cin.get() != '\n');
         if (choice != 0 && choice != 1) std::cout << "Некорректный ввод!\nПопробуйте еще раз: ";
     } while (choice != 0 && choice != 1);
     dataStorage = createDataStorage(choice);

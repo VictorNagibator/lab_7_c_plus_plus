@@ -34,7 +34,8 @@ void HDD::input() {
 
 	std::cout << "Введите cкорость вращения шпинделя: ";
 	std::cin >> spindleSpeed;
-	while (getchar() != '\n');
+	std::cin.clear();
+	while (std::cin.get() != '\n');
 
 	tryToSetArguments(spindleSpeed);
 }

@@ -46,7 +46,8 @@ void GPU::input() {
 	std::cin >> frequency;
 	std::cout << "Введите объем видеопамяти (в ГБ): ";
 	std::cin >> vram;
-	while (getchar() != '\n');
+	std::cin.clear();
+	while (std::cin.get() != '\n');
 
 	tryToSetArguments(modelName, frequency, vram);
 }

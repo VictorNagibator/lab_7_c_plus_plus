@@ -52,7 +52,8 @@ void Motherboard::input() {
     std::getline(std::cin, chipset);
     std::cout << "Введите тип поддерживаемой памяти (DDR - 0, DDR2 - 1, DDR3 - 2, DDR4 - 3, DDR5 - 4): ";
     std::cin >> supportedRAMType;
-    while (getchar() != '\n');
+    std::cin.clear();
+    while (std::cin.get() != '\n');
 
     setArguments(modelName, socket, chipset, supportedRAMType);
 }

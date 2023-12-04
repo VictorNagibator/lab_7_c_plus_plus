@@ -73,7 +73,8 @@ void RAM::input() {
 	std::cin >> frequency;
 	std::cout << "ֲגוהטעו מבתול (ג ֱֳ): ";
 	std::cin >> capacity;
-	while (getchar() != '\n');
+	std::cin.clear();
+	while (std::cin.get() != '\n');
 
 	tryToSetArguments(modelName, type, frequency, capacity);
 }

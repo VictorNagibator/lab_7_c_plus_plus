@@ -34,7 +34,8 @@ void SSD::input() {
 
 	std::cout << "Введите тип флеш-памяти (0 - SLC, 1 - MLC, 2 - NOR, 3 - NAND, 4 - 3DNAND): ";
 	std::cin >> typeOfFlashMemory;
-	while (getchar() != '\n');
+	std::cin.clear();
+	while (std::cin.get() != '\n');
 
 	setArguments(typeOfFlashMemory);
 }
