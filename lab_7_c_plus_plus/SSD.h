@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <iostream>
 #include <istream>
@@ -9,6 +9,7 @@ class SSD : public DataStorage
 {
 public:
 	SSD() = default;
+	SSD(std::string modelName);
 	SSD(DataTransferInterface transferInterface);
 	SSD(int capacity, DataTransferInterface transferInterface, std::string brand, float formFactor, FlashMemoryType typeOfFlashMemory);
 	~SSD() = default;

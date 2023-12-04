@@ -1,4 +1,4 @@
-#include "Display.h"
+п»ї#include "Display.h"
 
 void Display::operator=(Display other) {
 	this->modelName = other.getModelName();
@@ -44,11 +44,11 @@ void Display::input() {
 	std::string modelName;
 	int width, height, refreshRate;
 
-	std::cout << "Введите название модели: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РјРѕРґРµР»Рё: ";
 	std::getline(std::cin, modelName);
-	std::cout << "Введите ширину и высоту экрана (в пикселях): ";
+	std::cout << "Р’РІРµРґРёС‚Рµ С€РёСЂРёРЅСѓ Рё РІС‹СЃРѕС‚Сѓ СЌРєСЂР°РЅР° (РІ РїРёРєСЃРµР»СЏС…): ";
 	std::cin >> width >> height;
-	std::cout << "Введите частоту обновления экрана (в Гц): ";
+	std::cout << "Р’РІРµРґРёС‚Рµ С‡Р°СЃС‚РѕС‚Сѓ РѕР±РЅРѕРІР»РµРЅРёСЏ СЌРєСЂР°РЅР° (РІ Р“С†): ";
 	std::cin >> refreshRate;
 	std::cin.clear();
 	while (std::cin.get() != '\n');
@@ -57,7 +57,7 @@ void Display::input() {
 }
 
 std::string Display::toString() const {
-	std::string name = modelName + ", " + std::to_string(width) + "x" + std::to_string(height) + ", " + std::to_string(refreshRate) + " Гц";
+	std::string name = modelName + ", " + std::to_string(width) + "x" + std::to_string(height) + ", " + std::to_string(refreshRate) + " Р“С†";
 	return name;
 }
 
@@ -73,5 +73,5 @@ void Display::tryToSetArguments(std::string modelName, int width, int height, in
 		this->height = height;
 		this->refreshRate = refreshRate;
 	}
-	else throw std::invalid_argument("Некорректный формат данных!");
+	else throw std::invalid_argument("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ С„РѕСЂРјР°С‚ РґР°РЅРЅС‹С…!");
 }

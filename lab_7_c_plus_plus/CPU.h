@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 #include <format>
 #include "LaptopComponent.h"
@@ -27,8 +27,8 @@ private:
 	float frequency = 0;
 	int numOfCores = 0;
 
-	const float maxFreq = 9.0; //условная максимальная тактовая частота для процессора
-	const double tryFreq = 0.2; //условное повышение частоты для разгона
+	const float maxFreq = 9.0; //СѓСЃР»РѕРІРЅР°СЏ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р° РґР»СЏ РїСЂРѕС†РµСЃСЃРѕСЂР°
+	const double tryFreq = 0.2; //СѓСЃР»РѕРІРЅРѕРµ РїРѕРІС‹С€РµРЅРёРµ С‡Р°СЃС‚РѕС‚С‹ РґР»СЏ СЂР°Р·РіРѕРЅР°
 
 	bool checkArguments(std::string modelName, std::string socket, float frequency, int numOfCores) const;
 	void tryToSetArguments(std::string modelName, std::string socket, float frequency, int numOfCores);

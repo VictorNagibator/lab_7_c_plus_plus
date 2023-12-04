@@ -1,4 +1,4 @@
-#include "HDD.h"
+п»ї#include "HDD.h"
 
 void HDD::operator=(HDD other) {
 	DataStorage::operator=(other);
@@ -8,6 +8,11 @@ void HDD::operator=(HDD other) {
 std::ostream& operator << (std::ostream& out, const HDD& hdd) {
 	out << hdd.toString();
 	return out;
+}
+
+HDD::HDD(std::string modelName)
+	: DataStorage(modelName) {
+
 }
 
 HDD::HDD(DataTransferInterface transferInterface)
@@ -32,7 +37,7 @@ void HDD::input() {
 	DataStorage::input();
 	int spindleSpeed;
 
-	std::cout << "Введите cкорость вращения шпинделя: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ cРєРѕСЂРѕСЃС‚СЊ РІСЂР°С‰РµРЅРёСЏ С€РїРёРЅРґРµР»СЏ: ";
 	std::cin >> spindleSpeed;
 	std::cin.clear();
 	while (std::cin.get() != '\n');
@@ -54,5 +59,5 @@ void HDD::tryToSetArguments(int spindleSpeed) {
 	if (checkArguments(spindleSpeed)) {
 		this->spindleSpeed = spindleSpeed;
 	}
-	else throw std::invalid_argument("Некорректный формат данных!");
+	else throw std::invalid_argument("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ С„РѕСЂРјР°С‚ РґР°РЅРЅС‹С…!");
 }

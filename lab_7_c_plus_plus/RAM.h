@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <istream>
 #include <iostream>
 #include <string>
@@ -32,9 +32,9 @@ private:
 	float frequency = 0;
 	int capacity = 0;
 
-	//вектор максимально возможных частот для каждого типа памяти
+	//РІРµРєС‚РѕСЂ РјР°РєСЃРёРјР°Р»СЊРЅРѕ РІРѕР·РјРѕР¶РЅС‹С… С‡Р°СЃС‚РѕС‚ РґР»СЏ РєР°Р¶РґРѕРіРѕ С‚РёРїР° РїР°РјСЏС‚Рё
 	const std::vector<int> DDRFreqMax = { 400, 1066, 2400, 3333, 6400 };
-	const float tryFreq = 50; //условное повышение частоты для разгона
+	const float tryFreq = 50; //СѓСЃР»РѕРІРЅРѕРµ РїРѕРІС‹С€РµРЅРёРµ С‡Р°СЃС‚РѕС‚С‹ РґР»СЏ СЂР°Р·РіРѕРЅР°
 
 	bool checkArguments(std::string modelName, RAMType type, float frequency, int capacity) const;
 	void tryToSetArguments(std::string modelName, RAMType type, float frequency, int capacity);

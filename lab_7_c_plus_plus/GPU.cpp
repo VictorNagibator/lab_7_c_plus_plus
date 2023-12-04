@@ -1,4 +1,4 @@
-#include "GPU.h"
+п»ї#include "GPU.h"
 
 void GPU::operator=(GPU other) {
 	this->modelName = other.getModelName();
@@ -40,11 +40,11 @@ void GPU::input() {
 	float frequency;
 	int vram;
 
-	std::cout << "Введите название видеокарты: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РІРёРґРµРѕРєР°СЂС‚С‹: ";
 	std::getline(std::cin, modelName);
-	std::cout << "Введите тактовую частоту графического процессора (в МГц): ";
+	std::cout << "Р’РІРµРґРёС‚Рµ С‚Р°РєС‚РѕРІСѓСЋ С‡Р°СЃС‚РѕС‚Сѓ РіСЂР°С„РёС‡РµСЃРєРѕРіРѕ РїСЂРѕС†РµСЃСЃРѕСЂР° (РІ РњР“С†): ";
 	std::cin >> frequency;
-	std::cout << "Введите объем видеопамяти (в ГБ): ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РѕР±СЉРµРј РІРёРґРµРѕРїР°РјСЏС‚Рё (РІ Р“Р‘): ";
 	std::cin >> vram;
 	std::cin.clear();
 	while (std::cin.get() != '\n');
@@ -53,7 +53,7 @@ void GPU::input() {
 }
 
 std::string GPU::toString() const {
-	std::string name = this->getModelName() + ", " + std::format("{:.1f}", this->getFrequency()) + " МГц, " + std::to_string(this->getVRAM()) + " ГБ";
+	std::string name = this->getModelName() + ", " + std::format("{:.1f}", this->getFrequency()) + " РњР“С†, " + std::to_string(this->getVRAM()) + " Р“Р‘";
 	return name;
 }
 
@@ -68,5 +68,5 @@ void GPU::tryToSetArguments(std::string modelName, float frequency, int vram) {
 		this->frequency = frequency;
 		this->vram = vram;
 	}
-	else throw std::invalid_argument("Некорректный формат данных!");
+	else throw std::invalid_argument("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ С„РѕСЂРјР°С‚ РґР°РЅРЅС‹С…!");
 }

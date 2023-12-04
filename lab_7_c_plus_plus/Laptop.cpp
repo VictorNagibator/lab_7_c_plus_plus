@@ -1,4 +1,4 @@
-#include "Laptop.h"
+п»ї#include "Laptop.h"
 
 void Laptop::operator=(Laptop other) {
     this->modelName = other.getModelName();
@@ -55,7 +55,7 @@ void Laptop::setCPU(CPU cpu) {
     if (checkArguments(this->modelName, cpu, this->gpu, this->ram, this->motherboard, this->display, this->dataStorage)) {
         this->cpu = cpu;
     }
-    else throw std::invalid_argument("Неподходящий сокет!");
+    else throw std::invalid_argument("РќРµРїРѕРґС…РѕРґСЏС‰РёР№ СЃРѕРєРµС‚!");
 }
 
 void Laptop::setGPU(GPU gpu) {
@@ -66,7 +66,7 @@ void Laptop::setRAM(RAM ram) {
     if (checkArguments(this->modelName, this->cpu, this->gpu, ram, this->motherboard, this->display, this->dataStorage)) {
         this->ram = ram;
     }
-    else throw std::invalid_argument("Неподходящий тип памяти!");
+    else throw std::invalid_argument("РќРµРїРѕРґС…РѕРґСЏС‰РёР№ С‚РёРї РїР°РјСЏС‚Рё!");
 }
 
 void Laptop::setMotherboard(Motherboard motherboard) {
@@ -86,27 +86,27 @@ void Laptop::setDataStorage(DataStorage* dataStorage) {
 }
 
 void Laptop::input() {
-    std::cout << "Введите название ноутбука: ";
+    std::cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РЅРѕСѓС‚Р±СѓРєР°: ";
     std::getline(std::cin, modelName);
-    std::cout << "\tВвод параметров процессора\n";
+    std::cout << "\tР’РІРѕРґ РїР°СЂР°РјРµС‚СЂРѕРІ РїСЂРѕС†РµСЃСЃРѕСЂР°\n";
     cpu.input();
-    std::cout << "\tВвод параметров видеокарты\n";
+    std::cout << "\tР’РІРѕРґ РїР°СЂР°РјРµС‚СЂРѕРІ РІРёРґРµРѕРєР°СЂС‚С‹\n";
     gpu.input();
-    std::cout << "\tВвод параметров RAM\n";
+    std::cout << "\tР’РІРѕРґ РїР°СЂР°РјРµС‚СЂРѕРІ RAM\n";
     ram.input();
-    std::cout << "\tВвод параметров материнской платы\n";
+    std::cout << "\tР’РІРѕРґ РїР°СЂР°РјРµС‚СЂРѕРІ РјР°С‚РµСЂРёРЅСЃРєРѕР№ РїР»Р°С‚С‹\n";
     motherboard.input();
-    std::cout << "\tВвод параметров экрана\n";
+    std::cout << "\tР’РІРѕРґ РїР°СЂР°РјРµС‚СЂРѕРІ СЌРєСЂР°РЅР°\n";
     display.input();
-    std::cout << "\tВвод параметров хранилища\n";
-    std::cout << "Введите тип хранилища (0 - HDD, 1 - SSD): ";
+    std::cout << "\tР’РІРѕРґ РїР°СЂР°РјРµС‚СЂРѕРІ С…СЂР°РЅРёР»РёС‰Р°\n";
+    std::cout << "Р’РІРµРґРёС‚Рµ С‚РёРї С…СЂР°РЅРёР»РёС‰Р° (0 - HDD, 1 - SSD): ";
     int choice;
     do
     {
         std::cin >> choice;
         std::cin.clear();
         while (std::cin.get() != '\n');
-        if (choice != 0 && choice != 1) std::cout << "Некорректный ввод!\nПопробуйте еще раз: ";
+        if (choice != 0 && choice != 1) std::cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ!\nРџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·: ";
     } while (choice != 0 && choice != 1);
     dataStorage = createDataStorage(choice);
     dataStorage->input();
@@ -114,12 +114,12 @@ void Laptop::input() {
 
 std::string Laptop::toString() const {
     std::string name =
-        "Название модели: " + this->modelName + "\n" +
+        "РќР°Р·РІР°РЅРёРµ РјРѕРґРµР»Рё: " + this->modelName + "\n" +
         "CPU: " + this->cpu.toString() + "\n" +
         "GPU: " + this->gpu.toString() + "\n" +
         "RAM: " + this->ram.toString() + "\n" +
-        "Материнская плата: " + this->motherboard.toString() + "\n" +
-        "Экран: " + this->display.toString() + "\n" +
+        "РњР°С‚РµСЂРёРЅСЃРєР°СЏ РїР»Р°С‚Р°: " + this->motherboard.toString() + "\n" +
+        "Р­РєСЂР°РЅ: " + this->display.toString() + "\n" +
         this->dataStorage->getComponentName() + ": " + dataStorage->toString() + "\n";
     return name;
 }
@@ -139,7 +139,7 @@ void Laptop::tryToSetArguments(std::string modelName, CPU cpu, GPU gpu, RAM ram,
         this->display = display;
         this->dataStorage = dataStorage;
     }
-    else throw std::invalid_argument("Неподходящие комплектующие!");
+    else throw std::invalid_argument("РќРµРїРѕРґС…РѕРґСЏС‰РёРµ РєРѕРјРїР»РµРєС‚СѓСЋС‰РёРµ!");
 }
 
 DataStorage* Laptop::createDataStorage(int choice) {
@@ -158,7 +158,7 @@ void Laptop::boostCPU() {
     }
     catch (const std::invalid_argument&)
     {
-        std::cout << "Разгон CPU больше невозможен!\n";
+        std::cout << "Р Р°Р·РіРѕРЅ CPU Р±РѕР»СЊС€Рµ РЅРµРІРѕР·РјРѕР¶РµРЅ!\n";
     }
 }
 
@@ -169,7 +169,7 @@ void Laptop::boostCPU(float addable) {
     }
     catch (const std::invalid_argument&)
     {
-        std::cout << "Разгон CPU больше невозможен!\n";
+        std::cout << "Р Р°Р·РіРѕРЅ CPU Р±РѕР»СЊС€Рµ РЅРµРІРѕР·РјРѕР¶РµРЅ!\n";
     }
 }
 
@@ -181,7 +181,7 @@ void Laptop::boostRAM() {
     }
     catch (const std::invalid_argument&)
     {
-        std::cout << "Разгон RAM больше невозможен!\n";
+        std::cout << "Р Р°Р·РіРѕРЅ RAM Р±РѕР»СЊС€Рµ РЅРµРІРѕР·РјРѕР¶РµРЅ!\n";
     }
 }
 
@@ -192,6 +192,6 @@ void Laptop::boostRAM(float addable) {
     }
     catch (const std::invalid_argument&)
     {
-        std::cout << "Разгон RAM больше невозможен!\n";
+        std::cout << "Р Р°Р·РіРѕРЅ RAM Р±РѕР»СЊС€Рµ РЅРµРІРѕР·РјРѕР¶РµРЅ!\n";
     }
 }

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <format>
 #include "DataTransferInterface.h"
@@ -8,6 +8,7 @@ class DataStorage abstract : public LaptopComponent
 {
 public:
 	DataStorage() = default;
+	DataStorage(std::string modelName);
 	DataStorage(DataTransferInterface transferInterface);
 	DataStorage(int capacity, DataTransferInterface transferInterface, std::string modelName, float formFactor);
 	~DataStorage() = default;

@@ -1,4 +1,4 @@
-#include "Cpu.h"
+п»ї#include "Cpu.h"
 
 void CPU::operator=(const CPU other) {
 	this->modelName = other.getModelName();
@@ -60,13 +60,13 @@ void CPU::input() {
 	float frequency;
 	int numOfCores;
 
-	std::cout << "Введите название процессора: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР°: ";
 	std::getline(std::cin, modelName);
-	std::cout << "Введите название сокета процессора: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ СЃРѕРєРµС‚Р° РїСЂРѕС†РµСЃСЃРѕСЂР°: ";
 	std::getline(std::cin, socket);
-	std::cout << "Введите его тактовую частоту (в ГГц): ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РµРіРѕ С‚Р°РєС‚РѕРІСѓСЋ С‡Р°СЃС‚РѕС‚Сѓ (РІ Р“Р“С†): ";
 	std::cin >> frequency;
-	std::cout << "Введите количество ядер: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: ";
 	std::cin >> numOfCores;
 	std::cin.clear();
 	while (std::cin.get() != '\n');
@@ -75,7 +75,7 @@ void CPU::input() {
 }
 
 std::string CPU::toString() const {
-	std::string name = this->getModelName() + ", " + this->getSocket() + ", " + std::format("{:.1f}", this->getFrequency()) + " ГГц, " + std::to_string(this->getNumOfCores()) + "-ядерный";
+	std::string name = this->getModelName() + ", " + this->getSocket() + ", " + std::format("{:.1f}", this->getFrequency()) + " Р“Р“С†, " + std::to_string(this->getNumOfCores()) + "-СЏРґРµСЂРЅС‹Р№";
 	return name;
 }
 
@@ -91,5 +91,5 @@ void CPU::tryToSetArguments(std::string modelName, std::string socket, float fre
 		this->frequency = frequency;
 		this->numOfCores = numOfCores;
 	}
-	else throw std::invalid_argument("Некорректный формат данных!");
+	else throw std::invalid_argument("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ С„РѕСЂРјР°С‚ РґР°РЅРЅС‹С…!");
 }

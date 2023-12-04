@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 
 enum class FlashMemoryType { SLC, MLC, NOR, NAND, NAND3D };

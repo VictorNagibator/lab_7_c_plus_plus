@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 enum class RAMType { DDR, DDR2, DDR3, DDR4, DDR5 };
 

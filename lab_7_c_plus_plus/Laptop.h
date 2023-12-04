@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include "CPU.h"
 #include "Display.h"
@@ -45,7 +45,7 @@ private:
 	RAM ram = RAM();
 	Motherboard motherboard = Motherboard();
 	Display display = Display();
-	DataStorage* dataStorage = new HDD(); //По умолчанию в ноутбуке стоит HDD
+	DataStorage* dataStorage = new HDD(); //РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РІ РЅРѕСѓС‚Р±СѓРєРµ СЃС‚РѕРёС‚ HDD
 
 	bool checkArguments(std::string modelName, CPU cpu, GPU gpu, RAM ram, Motherboard motherboard, Display display, DataStorage* dataStorage);
 	void tryToSetArguments(std::string modelName, CPU cpu, GPU gpu, RAM ram, Motherboard motherboard, Display display, DataStorage* dataStorage);

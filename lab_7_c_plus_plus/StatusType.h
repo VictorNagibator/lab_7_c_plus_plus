@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <istream>
 
@@ -9,13 +9,13 @@ static std::string StatusTypeToString(StatusType type) {
 	switch (type)
 	{
 	case StatusType::ONHOLD:
-		result = "В ожидании";
+		result = "Р’ РѕР¶РёРґР°РЅРёРё";
 		break;
 	case StatusType::INPROCCESS:
-		result = "В ремонте";
+		result = "Р’ СЂРµРјРѕРЅС‚Рµ";
 		break;
 	case StatusType::FINISHED:
-		result = "Готов";
+		result = "Р“РѕС‚РѕРІ";
 		break;
 	default:
 		break;

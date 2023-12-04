@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <iostream>
 #include <istream>
@@ -8,8 +8,9 @@ class HDD : public DataStorage
 {
 public:
 	HDD() = default;
+	HDD(std::string modelName);
 	HDD(DataTransferInterface transferInterface);
-	HDD(int capacity, DataTransferInterface transferInterface, std::string brand, float formFactor, int spindleSpeed);
+	HDD(int capacity, DataTransferInterface transferInterface, std::string modelName, float formFactor, int spindleSpeed);
 	~HDD() = default;
 
 	void operator=(HDD other);

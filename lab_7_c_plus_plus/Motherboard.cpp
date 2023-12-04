@@ -1,4 +1,4 @@
-#include "Motherboard.h"
+ï»¿#include "Motherboard.h"
 
 void Motherboard::operator=(Motherboard other) {
     this->modelName = other.getModelName();
@@ -44,13 +44,13 @@ void Motherboard::input() {
     std::string modelName, socket, chipset;
     RAMType supportedRAMType;
 
-    std::cout << "Ââåäèòå íàçâàíèå ìàòåðèíñêîé ïëàòû: ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¼Ð°Ñ‚ÐµÑ€Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð»Ð°Ñ‚Ñ‹: ";
     std::getline(std::cin, modelName);
-    std::cout << "Ââåäèòå ñîêåò: ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ¾ÐºÐµÑ‚: ";
     std::getline(std::cin, socket);
-    std::cout << "Ââåäèòå ÷èïñåò: ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸Ð¿ÑÐµÑ‚: ";
     std::getline(std::cin, chipset);
-    std::cout << "Ââåäèòå òèï ïîääåðæèâàåìîé ïàìÿòè (DDR - 0, DDR2 - 1, DDR3 - 2, DDR4 - 3, DDR5 - 4): ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÐ¼Ð¾Ð¹ Ð¿Ð°Ð¼ÑÑ‚Ð¸ (DDR - 0, DDR2 - 1, DDR3 - 2, DDR4 - 3, DDR5 - 4): ";
     std::cin >> supportedRAMType;
     std::cin.clear();
     while (std::cin.get() != '\n');

@@ -1,4 +1,4 @@
-#include "SSD.h"
+ï»¿#include "SSD.h"
 
 void SSD::operator=(SSD other) {
 	DataStorage::operator=(other);
@@ -8,6 +8,11 @@ void SSD::operator=(SSD other) {
 std::ostream& operator << (std::ostream& out, const SSD& ssd) {
 	out << ssd.toString();
 	return out;
+}
+
+SSD::SSD(std::string modelName)
+	: DataStorage(modelName) {
+
 }
 
 SSD::SSD(DataTransferInterface transferInterface)
@@ -32,7 +37,7 @@ void SSD::input() {
 	FlashMemoryType typeOfFlashMemory;
 	DataStorage::input();
 
-	std::cout << "Ââåäèòå òèï ôëåø-ïàìÿòè (0 - SLC, 1 - MLC, 2 - NOR, 3 - NAND, 4 - 3DNAND): ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ñ„Ð»ÐµÑˆ-Ð¿Ð°Ð¼ÑÑ‚Ð¸ (0 - SLC, 1 - MLC, 2 - NOR, 3 - NAND, 4 - 3DNAND): ";
 	std::cin >> typeOfFlashMemory;
 	std::cin.clear();
 	while (std::cin.get() != '\n');
