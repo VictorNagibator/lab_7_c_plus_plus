@@ -30,5 +30,17 @@ int main()
 	table.removeLastComponent();
 	table.print();
 
+	LaptopComponent* searchbleComponent;
+	try
+	{
+		searchbleComponent = table.getComponent("Intel i7 11700f");
+	}
+	catch (const std::exception&)
+	{
+		std::cout << "Комплектующее не найдено!" << std::endl;
+	}
+	searchbleComponent = table.getComponent("Intel i5 11400f");
+	std::cout << "Найденный компонент: " << searchbleComponent->toString() << std::endl;
+
 	return 0;
 }
